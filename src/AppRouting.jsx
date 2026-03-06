@@ -5,6 +5,7 @@ import Messages from './components/Messages';
 import Login from './components/Login';
 import AuthGuard from './guards/Auth.guard';
 import Signup from './components/Signup';
+import NotFound from './components/NotFound';
 
 
 export default function AppRouting() {
@@ -31,6 +32,9 @@ export default function AppRouting() {
                     </AuthGuard>
                 }
             />
+
+            {/* Catch all unknown routes */}
+      <Route path="*" element={<NotFound/>} />
 
         </Routes>
     );
