@@ -233,9 +233,8 @@ const LoginFormCard = ({ setShowPassword, showPassword, isDesktop }) => {
 
 
   useEffect(() => {
-    console.log(isLoggedIn, 'dh')
     if (isLoggedIn()) {
-      navigate('dashboard')
+      navigate('/dashboard')
     }
   }, [])
   const handleSubmit = async (e) => {
