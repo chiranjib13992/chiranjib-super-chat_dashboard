@@ -1,4 +1,5 @@
 import apiConfig from "../services/apiConfig";
+import { setToken } from "./globalServices";
 const baseUrl = 'http://localhost:4040/api';
 
 const Login = async (data) => {
@@ -8,8 +9,8 @@ const Login = async (data) => {
                 'Content-Type': 'multipart/form-data',
             }
         });
-        console.log(res);
-        return res.data;
+        setToken(res.data['token'])
+        return res;
     } catch (err) {
         console.log("err", err)
     }
