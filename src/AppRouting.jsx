@@ -6,36 +6,43 @@ import Login from './components/Login';
 import AuthGuard from './guards/Auth.guard';
 import Signup from './components/Signup';
 import NotFound from './components/NotFound';
-
+import DashboardLayout from './layout/DashboardLayout';
 
 export default function AppRouting() {
-    return (
-        <Routes>
+  return (
+    <Routes>
 
-           <Route path="/" element={<Login />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route
-                path="/dashboard"
-                element={
-                    <AuthGuard>
-                        <Dashboard/>
-                    </AuthGuard>
-                }
-            />
+      {/* Public routes */}
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-            <Route
-                path="/messages"
-                element={
-                    <AuthGuard>
-                        <Messages />
-                    </AuthGuard>
-                }
-            />
+      {/* Dashboard layout routes */}
+      <Route element={<DashboardLayout />}>
 
-            {/* Catch all unknown routes */}
-      <Route path="*" element={<NotFound/>} />
+        <Route
+          path="/dashboard"
+          element={
+            <AuthGuard>
+              <Dashboard />
+            </AuthGuard>
+          }
+        />
 
-        </Routes>
-    );
+        <Route
+          path="/messages"
+          element={
+            <AuthGuard>
+              <Messages />
+            </AuthGuard>
+          }
+        />
+
+      </Route>
+
+      {/* 404 */}
+      <Route path="*" element={<NotFound />} />
+
+    </Routes>
+  );
 }
