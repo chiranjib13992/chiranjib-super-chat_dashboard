@@ -1,32 +1,22 @@
 // src/components/Header.jsx
 import { Link } from "react-router-dom";
+import { logout } from "../services/globalServices";
 
-export default function Header() {
+export default function Header({ styles }) {
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-900 text-white h-16 flex items-center justify-between px-6 shadow-md z-50">
-      {/* Logo */}
-      <div className="text-xl font-bold">
-        <Link to="/dashboard">Super Chat</Link>
-      </div>
+    <header style={styles.headerWrapper}>
+      <Link to="/dashboard" style={styles.headerLogo}>
+        Super Chat
+      </Link>
 
-      {/* Navigation */}
-      <nav className="space-x-6">
-        <Link
-          to="/dashboard"
-          className="hover:text-slate-300 transition-colors"
-        >
+      <nav style={styles.headerNav}>
+        <Link to="/dashboard" style={styles.headerNavLink}>
           Dashboard
         </Link>
-        <Link
-          to="/messages"
-          className="hover:text-slate-300 transition-colors"
-        >
+        <Link to="/messages" style={styles.headerNavLink}>
           Messages
         </Link>
-        <Link
-          to="/"
-          className="hover:text-slate-300 transition-colors"
-        >
+        <Link onClick={logout} style={styles.headerNavLink}>
           Logout
         </Link>
       </nav>
