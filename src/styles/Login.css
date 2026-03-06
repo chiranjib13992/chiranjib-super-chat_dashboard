@@ -1,0 +1,200 @@
+/* -------------------------------------- */
+/* 1. CSS VARIABLES (Design System) */
+/* -------------------------------------- */
+:root {
+    /* Colors */
+    --color-primary: #1e3a8a; /* Deep Blue - for actions/branding */
+    --color-secondary: #4b5563; /* Dark Gray - for secondary text */
+    --color-background: #f8fafc; /* Light Blue/Gray Background */
+    --color-card: #ffffff;
+    --color-border: #e5e7eb;
+    --color-success: #10b981;
+    --color-error: #ef4444;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Borders */
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Typography */
+    --font-heading: 1.75rem;
+    --font-body: 1rem;
+    --font-small: 0.875rem;
+}
+
+/* Base style for the entire application wrapper */
+.pro-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    font-family: 'Inter', sans-serif, Arial, sans-serif;
+}
+
+/* -------------------------------------- */
+/* 2. CARD CONTAINER */
+/* -------------------------------------- */
+.pro-card {
+    background-color: var(--color-card);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+}
+
+/* -------------------------------------- */
+/* 3. HEADER */
+/* -------------------------------------- */
+.pro-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.pro-header h2 {
+    font-size: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.pro-header p {
+    font-size: var(--font-body);
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* -------------------------------------- */
+/* 4. FORM GROUPS AND INPUTS */
+/* -------------------------------------- */
+.pro-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.pro-form-group label {
+    display: block;
+    font-size: var(--font-small);
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pro-form-group input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-body);
+    color: var(--color-secondary);
+    box-sizing: border-box; /* Important for padding/width calculation */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pro-form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1); /* Subtle focus ring */
+}
+
+/* -------------------------------------- */
+/* 5. PASSWORD TOGGLE */
+/* -------------------------------------- */
+.pro-password-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pro-password-box input {
+    padding-right: 3rem; /* Make space for the icon button */
+}
+
+.pro-toggle-pass {
+    position: absolute;
+    right: 0;
+    padding: var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    transition: color 0.2s;
+}
+
+.pro-toggle-pass:hover {
+    color: var(--color-primary);
+}
+
+/* -------------------------------------- */
+/* 6. OPTIONS AND LINKS */
+/* -------------------------------------- */
+.pro-options-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pro-forgot-link {
+    font-size: var(--font-small);
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.pro-forgot-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.pro-bottom-text {
+    font-size: var(--font-small);
+    color: var(--color-secondary);
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.pro-signup-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.pro-signup-link:hover {
+    text-decoration: underline;
+}
+
+/* -------------------------------------- */
+/* 7. SUBMIT BUTTON */
+/* -------------------------------------- */
+.pro-submit-btn {
+    width: 100%;
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-primary);
+    color: var(--color-card);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.pro-submit-btn:hover {
+    background-color: #1e40af; /* Slightly darker blue on hover */
+    box-shadow: 0 5px 10px -2px rgba(30, 58, 138, 0.3);
+}
+
+.pro-submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.3);
+}
