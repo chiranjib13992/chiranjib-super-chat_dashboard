@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import apiService from "../services/apiService";
+import { isLoggedIn } from "../services/globalServices";
+import { useNavigate } from "react-router-dom";
 
 // --- CSS Styles as JavaScript Objects (Copied from Login) ---
 const styles = {
@@ -226,6 +228,14 @@ const SignUpFormCard = ({ setShowPassword, showPassword, isDesktop }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+      const navigate = useNavigate();
+
+
+    useEffect(() => {
+        if (isLoggedIn()) {
+          navigate('/dashboard')
+        }
+      }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
